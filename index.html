@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Transit Tracker — Visual</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="container">
+    <header class="header">
+      <h1>Transit Tracker <span class="bus">🚌</span></h1>
+      <p class="subtitle">Paste event logs below and press Run — animated summary will appear.</p>
+    </header>
+
+    <section class="controls">
+      <textarea id="inputArea" placeholder="Enter event logs here (first line = N)..."></textarea>
+      <div class="buttons">
+        <button id="runBtn" class="primary">Run</button>
+        <div class="samples">
+          <label>Samples:</label>
+          <select id="sampleSelect">
+            <option value="">-- choose sample --</option>
+            <option value="sample1">Sample 1 (mixed)</option>
+            <option value="sample2">Sample 2 (no delays)</option>
+            <option value="sample3">Sample 3 (no pass)</option>
+            <option value="sample4">Sample 4 (ties)</option>
+            <option value="sample5">Sample 5 (big)</option>
+          </select>
+          <button id="loadSample">Load</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="results" aria-live="polite">
+      <div class="card">
+        <h2>Total passengers</h2>
+        <div class="big-number" id="totalPassengers">0</div>
+      </div>
+
+      <div class="card">
+        <h2>Most delays</h2>
+        <div id="delaysArea" class="list-area">None</div>
+      </div>
+
+      <div class="card">
+        <h2>Most passed stop</h2>
+        <div id="passesArea" class="list-area">None</div>
+      </div>
+    </section>
+
+    <section class="charts">
+      <div class="chart-card">
+        <h3>Delays by route</h3>
+        <div id="delayChart" class="chart"></div>
+      </div>
+      <div class="chart-card">
+        <h3>Passes by stop</h3>
+        <div id="passChart" class="chart"></div>
+      </div>
+    </section>
+
+    <footer class="footer">Designed for ICS4U assignment — interactive visualization of transit events</footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
